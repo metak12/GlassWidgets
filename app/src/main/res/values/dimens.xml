@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Если виджет выше, чем у Xiaomi: увеличьте glass_inset_v (и content_pad_v на столько же). -->
+    <dimen name="glass_inset_v">12dp</dimen>
+    <dimen name="content_pad_v">28dp</dimen>
+    <dimen name="content_pad_h">16dp</dimen>
+</resources>
