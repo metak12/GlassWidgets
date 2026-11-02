@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- отступ сверху/снизу даёт сам фон (inset), картинка рисуется ровно по стеклу -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:layout_width="match_parent"
@@ -8,8 +9,6 @@
         android:id="@+id/card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/glass_inset_v"
-        android:layout_marginBottom="@dimen/glass_inset_v"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:src="@drawable/stats_content_preview" />
 </FrameLayout>

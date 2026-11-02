@@ -4,4 +4,6 @@
     <dimen name="glass_inset_v">12dp</dimen>
     <dimen name="content_pad_v">28dp</dimen>
     <dimen name="content_pad_h">16dp</dimen>
+    <!-- = content_pad_v - glass_inset_v: внутренний отступ поверх отступа стекла -->
+    <dimen name="content_pad_inner_v">16dp</dimen>
 </resources>

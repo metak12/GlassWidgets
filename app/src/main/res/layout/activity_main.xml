@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Экран настроек. Сгенерирован вручную, стиль строк — в values/styles.xml -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="32dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="6dp"
+            android:text="Glass Виджеты"
+            android:textColor="@color/text"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="2dp"
+            android:text="Настройки виджетов погоды и активности"
+            android:textColor="@color/text_dim"
+            android:textSize="14sp" />
+
+        <!-- живой предпросмотр виджетов -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="214dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <include
+                android:id="@+id/preview_weather"
+                layout="@layout/widget_weather"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp" />
+
+            <include
+                android:id="@+id/preview_stats"
+                layout="@layout/widget_stats"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp" />
+        </LinearLayout>
+
+        <TextView style="@style/SectionTitle" android:text="Погода" />
+        <LinearLayout style="@style/Card">
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="📍" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Город" />
+                    <TextView android:id="@+id/place" style="@style/RowSub" android:text="Используется для прогноза Open-Meteo" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical" android:paddingBottom="12dp">
+                <EditText android:id="@+id/city_input" android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="44dp" android:background="@drawable/input_bg" android:paddingStart="14dp"
+                    android:paddingEnd="14dp" android:hint="Например, Курчатов" android:textColorHint="#66FFFFFF"
+                    android:textColor="@color/text" android:textSize="16sp" android:singleLine="true"
+                    android:imeOptions="actionDone" android:inputType="textCapWords" />
+                <TextView android:id="@+id/save_city" style="@style/PillButton" android:layout_marginStart="10dp" android:text="Найти" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="🌦️" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Данные «Погоды» Xiaomi" />
+                    <TextView android:id="@+id/xiaomi_sub" style="@style/RowSub" android:text="Текущая температура из системного приложения" />
+                </LinearLayout>
+                <Switch android:id="@+id/use_xiaomi" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <TextView style="@style/SectionTitle" android:text="Активность" />
+        <LinearLayout style="@style/Card">
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="❤️" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Health Connect" />
+                    <TextView android:id="@+id/hc_sub" style="@style/RowSub" android:text="" />
+                </LinearLayout>
+                <TextView android:id="@+id/hc_btn" style="@style/PillButton" android:layout_marginStart="10dp" android:text="Подключить" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="👟" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Датчик шагов телефона" />
+                    <TextView android:id="@+id/sensor_sub" style="@style/RowSub" android:text="" />
+                </LinearLayout>
+                <TextView android:id="@+id/sensor_btn" style="@style/PillButton" android:layout_marginStart="10dp" android:text="Разрешить" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="🎯" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Цель на день" />
+                </LinearLayout>
+                <TextView android:id="@+id/goal_value" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" android:textColor="@color/accent" android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+            <SeekBar android:id="@+id/goal" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="38dp" android:paddingTop="2dp" android:paddingBottom="14dp" android:max="36"
+                android:progressTint="@color/accent" android:thumbTint="@color/accent"
+                android:progressBackgroundTint="#55FFFFFF" />
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="⚖️" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Вес" />
+                    <TextView android:id="@+id/weight_sub" style="@style/RowSub" android:text="Для расчёта калорий без Health Connect" />
+                </LinearLayout>
+                <TextView android:id="@+id/weight_value" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp" android:textColor="@color/accent" android:textSize="16sp"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+            <SeekBar android:id="@+id/weight" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginStart="38dp" android:paddingTop="2dp" android:paddingBottom="14dp" android:max="110"
+                android:progressTint="@color/accent" android:thumbTint="@color/accent"
+                android:progressBackgroundTint="#55FFFFFF" />
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="📊" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Сегодня" />
+                    <TextView android:id="@+id/today_sub" style="@style/RowSub" android:text="…" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView style="@style/SectionTitle" android:text="Оформление" />
+        <LinearLayout style="@style/Card">
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/RowIcon" android:text="🪟" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Прозрачность стекла" />
+                    <TextView android:id="@+id/glass_sub" style="@style/RowSub" android:text="Применяется к обоим виджетам" />
+                </LinearLayout>
+            </LinearLayout>
+            <RadioGroup android:id="@+id/glass" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:paddingBottom="14dp">
+                <RadioButton android:id="@+id/glass_light" style="@style/Chip" android:text="Светлое" />
+                <RadioButton android:id="@+id/glass_normal" style="@style/Chip" android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" android:text="Обычное" />
+                <RadioButton android:id="@+id/glass_dark" style="@style/Chip" android:text="Тёмное" />
+            </RadioGroup>
+        </LinearLayout>
+        <TextView style="@style/SectionTitle" android:text="Виджеты" />
+        <LinearLayout style="@style/Card">
+            <LinearLayout style="@style/Row" android:id="@+id/add_weather" android:background="@drawable/row_bg" android:clickable="true" android:focusable="true">
+                <TextView style="@style/RowIcon" android:text="➕" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Добавить «Погоду»" />
+                    <TextView android:id="@+id/add_weather_sub" style="@style/RowSub" android:text="На рабочий стол" />
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row" android:id="@+id/add_stats" android:background="@drawable/row_bg" android:clickable="true" android:focusable="true">
+                <TextView style="@style/RowIcon" android:text="➕" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Добавить «Статистику»" />
+                    <TextView android:id="@+id/add_stats_sub" style="@style/RowSub" android:text="Шаги, калории, минуты активности" />
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider" />
+            <LinearLayout style="@style/Row" android:id="@+id/refresh" android:background="@drawable/row_bg" android:clickable="true" android:focusable="true">
+                <TextView style="@style/RowIcon" android:text="🔄" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Обновить сейчас" />
+                    <TextView android:id="@+id/refresh_sub" style="@style/RowSub" android:text="Перечитать погоду и шаги" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <TextView style="@style/SectionTitle" android:text="Диагностика" />
+        <LinearLayout style="@style/Card">
+            <LinearLayout style="@style/Row" android:id="@+id/dump" android:background="@drawable/row_bg" android:clickable="true" android:focusable="true">
+                <TextView style="@style/RowIcon" android:text="🔍" />
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical">
+                    <TextView style="@style/RowTitle" android:text="Проверить «Погоду» Xiaomi" />
+                    <TextView android:id="@+id/dump_sub" style="@style/RowSub" android:text="Показать поля системного провайдера" />
+                </LinearLayout>
+            </LinearLayout>
+            <TextView android:id="@+id/dump_text" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:paddingBottom="12dp" android:fontFamily="monospace" android:textSize="11sp"
+                android:textColor="@color/text_dim" android:textIsSelectable="true" android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:textColor="#59FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

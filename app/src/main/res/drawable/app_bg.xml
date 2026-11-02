@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient android:angle="270" android:startColor="@color/bg_top"
+                android:centerColor="@color/bg_mid" android:endColor="@color/bg_bottom" />
+        </shape>
+    </item>
+    <!-- мягкое тёплое свечение сверху -->
+    <item android:bottom="-200dp" android:left="-120dp" android:right="-120dp" android:top="-260dp">
+        <shape android:shape="oval">
+            <gradient android:type="radial" android:gradientRadius="320dp"
+                android:startColor="#30FF8A3D" android:endColor="#00FF8A3D" android:centerY="0.25" />
+        </shape>
+    </item>
+</layer-list>
